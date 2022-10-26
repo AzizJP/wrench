@@ -1,16 +1,14 @@
-type Props = {};
+import {FC} from 'react';
 
-export default function Header({}: Props) {
+import {ReactComponent as Logo} from '../assets/logo.svg';
+
+const Header: FC = () => {
   return (
     <header className="header">
-      <section className="header__logo-container">
-        <img src="" alt="Логотип" className="header__logo" />
-        <h1 className="header__title"></h1>
-      </section>
-      <section className="header__person-container">
-        <img src="" alt="" className="header__person-icon" />
-        <h2 className="header__person-name"></h2>
-      </section>
+      <section className="header__logo-container">Helo</section>
+      <Logo fill="red" />
     </header>
   );
-}
+};
+
+export default Header;

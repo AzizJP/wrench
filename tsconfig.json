@@ -1,11 +1,6 @@
 {
   "compilerOptions": {
     "target": "es6",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
     "outDir": "./dist/",
     "sourceMap": true,
     "noEmit": false,
@@ -18,9 +13,6 @@
     "noUnusedLocals": true,
     "skipLibCheck": true
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules"
   ]
