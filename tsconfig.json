@@ -1,16 +1,27 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noEmit": true,
-        "noImplicitAny": true,
-        "allowJs": true,
-        "module": "esnext",
-        "target": "es6",
-        "jsx": "react-jsx",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "noUnusedLocals": true,
-        "skipLibCheck": true
-    }
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noEmit": false,
+    "noImplicitAny": true,
+    "allowJs": true,
+    "module": "esnext",
+    "jsx": "react-jsx",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
