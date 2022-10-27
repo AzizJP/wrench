@@ -38,6 +38,7 @@ yarn-error.log*
 logs
 *.log
 yarn.lock
+package-lock.json
 
 # Runtime data
 pids
