@@ -27,6 +27,7 @@ yarn-error.log*
 
 .prettierignore
 .eslintignore
+.editorconfig
 
 # Default ignored files
 /shelf/
