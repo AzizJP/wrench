@@ -1,6 +1,6 @@
-import Header from './components/Header';
 import {FC, memo} from 'react';
 
+import Header from './components/Header';
 
 const App: FC = memo(() => {
   return <Header />;
