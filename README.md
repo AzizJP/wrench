@@ -8,7 +8,6 @@
 ![React](https://img.shields.io/badge/-React-4A4A4A?style=for-the-badge&logo=React&logoColor=73C6E5)
 ![Babel](https://img.shields.io/badge/-Babel-4A4A4A?style=for-the-badge&logo=Babel&logoColor=ECE922)
 ![Webpack](https://img.shields.io/badge/-Webpack-4A4A4A?style=for-the-badge&logo=Webpack&logoColor=73C6E5)
-![PostCSS](https://img.shields.io/badge/-PostCSS-4A4A4A?style=for-the-badge&logo=postcss&logoColor=EC6222)
 
 
 ### Обзор
