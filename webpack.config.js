@@ -1,13 +1,14 @@
 const path = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  entry: {main: './src/index.tsx'},
+  entry: './src/index.tsx',
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
     filename: 'main.js',
-    publicPath: '',
   },
   mode: 'development',
   devServer: {
@@ -33,8 +34,31 @@ module.exports = {
         use: ['ts-loader'],
       },
       {
-        test: /\.(png|svg|jpg|gif|woff(2)?|eot|ttf|otf)$/,
+        test: /\.(png|jpg|gif|woff(2)?|eot|ttf|otf)$/,
         type: 'asset/resource',
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: [
+                  {
+                    name: 'removeViewBox',
+                    removeViewBox: false,
+                  },
+                  {
+                    name: 'removeAttrs',
+                    removeAttrs: {attrs: '(stroke|fill)'},
+                  },
+                ],
+              },
+            },
+          },
+          'url-loader',
+        ],
       },
       {
         test: /\.css$/,
