@@ -13,7 +13,7 @@ const Header: FC = () => {
   return (
     <HeaderWrapper>
       <section className="header__logo-container">Helo</section>
-      <Logo fill="red" />
+      <Logo />
     </HeaderWrapper>
   );
 };
