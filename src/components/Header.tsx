@@ -4,10 +4,6 @@ import {FC, memo} from 'react';
 import {ReactComponent as Logo} from '../assets/logo.svg';
 import {ReactComponent as PersonIcon} from '../assets/person-icon.svg';
 
-// type Props = {
-//   gap: string;
-// };
-
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
