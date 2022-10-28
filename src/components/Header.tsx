@@ -54,22 +54,28 @@ const IconWrapper = styled.span`
   }
 `;
 
-const HeaderItemsContainer = styled.div<{gap: number}>`
-  gap: ${({gap}) => gap}px;
+const HeaderItemsContainer = styled.div<{logo: boolean}>`
+  gap: ${({logo}) => (logo ? 12 : 8)}px;
   display: flex;
   align-items: center;
+  ${mq[0]} {
+    gap: ${({logo}) => (logo ? 20 : 12)}px;
+  }
+  ${mq[1]} {
+    gap: ${({logo}) => (logo ? 24 : 16)}px;
+  }
 `;
 
 const Header: FC = memo(() => {
   return (
     <HeaderWrapper>
-      <HeaderItemsContainer gap={24}>
+      <HeaderItemsContainer logo>
         <IconWrapper>
           <Logo />
         </IconWrapper>
         <HeaderTitle>Wrench CRM</HeaderTitle>
       </HeaderItemsContainer>
-      <HeaderItemsContainer gap={16}>
+      <HeaderItemsContainer logo={false}>
         <IconWrapper>
           <PersonIcon />
         </IconWrapper>
