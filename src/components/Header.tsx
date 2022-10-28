@@ -33,7 +33,7 @@ const HeaderItemsContainer = styled.div<{gap: number}>`
   align-items: center;
 `;
 
-const IconWrapper = styled.div`
+const IconWrapper = styled.span`
   & > svg {
     height: 48px;
     width: 48px;
