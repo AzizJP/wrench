@@ -1,11 +1,10 @@
 import styled from '@emotion/styled';
 import {FC, memo} from 'react';
 
+import mq from '../../types/common';
+
 import {ReactComponent as Logo} from '../assets/logo.svg';
 import {ReactComponent as PersonIcon} from '../assets/person-icon.svg';
-
-const breakpoints: Array<number> = [420, 768];
-const mq: Array<string> = breakpoints.map(bp => `@media (min-width: ${bp}px)`);
 
 const HeaderWrapper = styled.div`
   display: flex;
