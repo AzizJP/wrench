@@ -4,12 +4,16 @@ import {FC, memo} from 'react';
 import {ReactComponent as Logo} from '../assets/logo.svg';
 import {ReactComponent as PersonIcon} from '../assets/person-icon.svg';
 
+// type Props = {
+//   gap: string;
+// };
+
 const HeaderWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background: #4f27bf;
-  width: 100%;
+  padding: 16px 32px;
 `;
 
 const HeaderTitle = styled.h1`
@@ -21,21 +25,19 @@ const HeaderTitle = styled.h1`
 `;
 
 const LogoWrapper = styled.span`
-  margin: 16px 24px 16px 32px;
   & > svg {
     height: 48px;
     width: 48px;
   }
 `;
 
-const HeaderItemsContainer = styled.div`
+const HeaderItemsContainer = styled.div<{gap: number}>`
+  gap: ${({gap}) => gap}px;
   display: flex;
-  margin: 0;
   align-items: center;
 `;
 
 const IconWrapper = styled.div`
-  margin: 16px;
   & > svg {
     height: 48px;
     width: 48px;
@@ -43,7 +45,7 @@ const IconWrapper = styled.div`
 `;
 
 const PersonTitle = styled.h2`
-  margin: 28px 32px 28px 0;
+  margin: 0;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -53,13 +55,13 @@ const PersonTitle = styled.h2`
 const Header: FC = memo(() => {
   return (
     <HeaderWrapper>
-      <HeaderItemsContainer>
+      <HeaderItemsContainer gap={24}>
         <LogoWrapper>
           <Logo />
         </LogoWrapper>
         <HeaderTitle>Wrench CRM</HeaderTitle>
       </HeaderItemsContainer>
-      <HeaderItemsContainer>
+      <HeaderItemsContainer gap={16}>
         <IconWrapper>
           <PersonIcon />
         </IconWrapper>
