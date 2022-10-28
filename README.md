@@ -4,11 +4,11 @@
 
 ![HTML5](https://img.shields.io/badge/-HTML5-4A4A4A?style=for-the-badge&logo=HTML5&logoColor=FF7600)
 ![CSS3](https://img.shields.io/badge/-CSS3-4A4A4A?style=for-the-badge&logo=CSS3&logoColor=5871CD)
+![JavaScript](https://img.shields.io/badge/-JavaScript-4A4A4A?style=for-the-badge&logo=JavaScript&logoColor=FFE300)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-4A4A4A?style=for-the-badge&logo=TypeScript&logoColor=4895DB)
 ![React](https://img.shields.io/badge/-React-4A4A4A?style=for-the-badge&logo=React&logoColor=73C6E5)
 ![Babel](https://img.shields.io/badge/-Babel-4A4A4A?style=for-the-badge&logo=Babel&logoColor=ECE922)
 ![Webpack](https://img.shields.io/badge/-Webpack-4A4A4A?style=for-the-badge&logo=Webpack&logoColor=73C6E5)
-![PostCSS](https://img.shields.io/badge/-PostCSS-4A4A4A?style=for-the-badge&logo=postcss&logoColor=EC6222)
 
 
 ### Обзор
