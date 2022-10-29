@@ -6,7 +6,7 @@ import mq from '../../types/common';
 import {ReactComponent as Logo} from '../assets/logo.svg';
 import {ReactComponent as PersonIcon} from '../assets/person-icon.svg';
 
-const HeaderWrapper = styled.div`
+const HeaderWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
