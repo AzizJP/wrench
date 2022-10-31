@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import {FC, memo} from 'react';
 
 import Header from './components/Header';
-import Sidebar from './components/Sidebar';
+import Sidebar from './components/Sidebar/Sidebar';
 
 const globalStyle = css`
   body {
