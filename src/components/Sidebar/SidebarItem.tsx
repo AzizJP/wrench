@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import {FC, memo} from 'react';
 
-import MenuItemsType from '../../../types/types';
+import {MenuItemsType} from './types';
 
 const SidebarItemWrapper = styled.button`
   display: flex;

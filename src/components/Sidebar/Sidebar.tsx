@@ -3,7 +3,6 @@ import {FC, memo} from 'react';
 
 import mq from '../../../types/common';
 
-import MenuItemsType from '../../../types/types';
 import {ReactComponent as Calendar} from '../../assets/calendar-menu-icon.svg';
 import {ReactComponent as Exit} from '../../assets/exit-menu-icon.svg';
 import {ReactComponent as FinanceSettings} from '../../assets/finance-settings-icon.svg';
@@ -16,62 +15,53 @@ import {ReactComponent as Table} from '../../assets/table-menu-icon.svg';
 import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
 
 import SidebarItem from './SidebarItem';
+import {MenuItemsType} from './types';
 
 const MenuItems: Array<MenuItemsType> = [
   {
     icon: <Main />,
     title: 'Главная',
-    id: '0',
   },
   {
     icon: <Search />,
     title: 'Поиск адресов',
-    id: '1',
   },
   {
     icon: <Table />,
     title: 'Таблицы',
-    id: '2',
   },
   {
     icon: <Calendar />,
     title: 'Календарь',
-    id: '3',
   },
   {
     icon: <Location />,
     title: 'Карты',
-    id: '4',
   },
   {
     icon: <Widget />,
     title: 'Виджеты',
-    id: '5',
   },
   {
     icon: <Settings />,
     title: 'Настройки',
-    id: '6',
   },
   {
     icon: <ProfileSettings />,
     title: 'Настройки профиля',
-    id: '7',
   },
   {
     icon: <FinanceSettings />,
     title: 'Управление финансами',
-    id: '8',
   },
   {
     icon: <Exit />,
     title: 'Выход',
-    id: '9',
   },
 ];
 
 const SidebarWrapper = styled.section`
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow: auto;
   width: 300px;
@@ -100,8 +90,8 @@ const Sidebar: FC = memo(() => {
     <SidebarWrapper>
       <SidebarTitle>Меню</SidebarTitle>
       <SidebarList>
-        {MenuItems.map(({icon, title, id}) => (
-          <SidebarItem icon={icon} title={title} key={id} id="" />
+        {MenuItems.map(({icon, title}) => (
+          <SidebarItem icon={icon} title={title} key={title} />
         ))}
       </SidebarList>
     </SidebarWrapper>
