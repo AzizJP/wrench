@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import {FC, memo} from 'react';
+import {FC, memo, SVGProps} from 'react';
 
 import mq from '../../../types/common';
 import {ReactComponent as Calendar} from '../../assets/calendar-menu-icon.svg';
@@ -15,7 +15,12 @@ import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
 
 import SidebarItem from './SidebarItem';
 
-const MenuData = [
+interface MenuItemsProps {
+  icon: FC<SVGProps<SVGSVGElement>>;
+  title: string;
+}
+
+const MenuItems: Array<MenuItemsProps> = [
   {
     icon: Main,
     title: 'Главная',
@@ -58,38 +63,29 @@ const MenuData = [
   },
 ];
 
-const SidebarWrapper = styled.div`
+const SidebarWrapper = styled.section`
   display: none;
   flex-direction: column;
-  position: fixed;
   overflow: auto;
   width: 300px;
   height: 100%;
-  top: 80;
-  left: 0;
   box-shadow: 0px 0px 5px rgba(2, 0, 96, 0.25);
-  &::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background-color: #d1d1d1;
-  }
   ${mq[1]} {
     display: flex;
   }
 `;
 
 const SidebarTitle = styled.h3`
-  margin: 24px 32px 0;
+  margin: 24px 32px 12px;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
   color: #1c1c1e;
 `;
 
-const SidebarList = styled.ul`
+const SidebarList = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 12px 0 0;
-  padding: 0;
 `;
 
 const Sidebar: FC = memo(() => {
@@ -97,7 +93,7 @@ const Sidebar: FC = memo(() => {
     <SidebarWrapper>
       <SidebarTitle>Меню</SidebarTitle>
       <SidebarList>
-        {MenuData.map((menuItem, index) => (
+        {MenuItems.map((menuItem, index) => (
           <SidebarItem icon={<menuItem.icon />} title={menuItem.title} key={index} />
         ))}
       </SidebarList>
