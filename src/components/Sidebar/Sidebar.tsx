@@ -1,7 +1,9 @@
 import styled from '@emotion/styled';
-import {FC, memo, SVGProps} from 'react';
+import {FC, memo} from 'react';
 
 import mq from '../../../types/common';
+
+import MenuItemsType from '../../../types/types';
 import {ReactComponent as Calendar} from '../../assets/calendar-menu-icon.svg';
 import {ReactComponent as Exit} from '../../assets/exit-menu-icon.svg';
 import {ReactComponent as FinanceSettings} from '../../assets/finance-settings-icon.svg';
@@ -15,56 +17,61 @@ import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
 
 import SidebarItem from './SidebarItem';
 
-interface MenuItemsProps {
-  icon: FC<SVGProps<SVGSVGElement>>;
-  title: string;
-}
-
-const MenuItems: Array<MenuItemsProps> = [
+const MenuItems: Array<MenuItemsType> = [
   {
-    icon: Main,
+    icon: <Main />,
     title: 'Главная',
+    id: '0',
   },
   {
-    icon: Search,
+    icon: <Search />,
     title: 'Поиск адресов',
+    id: '1',
   },
   {
-    icon: Table,
+    icon: <Table />,
     title: 'Таблицы',
+    id: '2',
   },
   {
-    icon: Calendar,
+    icon: <Calendar />,
     title: 'Календарь',
+    id: '3',
   },
   {
-    icon: Location,
+    icon: <Location />,
     title: 'Карты',
+    id: '4',
   },
   {
-    icon: Widget,
+    icon: <Widget />,
     title: 'Виджеты',
+    id: '5',
   },
   {
-    icon: Settings,
+    icon: <Settings />,
     title: 'Настройки',
+    id: '6',
   },
   {
-    icon: ProfileSettings,
+    icon: <ProfileSettings />,
     title: 'Настройки профиля',
+    id: '7',
   },
   {
-    icon: FinanceSettings,
+    icon: <FinanceSettings />,
     title: 'Управление финансами',
+    id: '8',
   },
   {
-    icon: Exit,
+    icon: <Exit />,
     title: 'Выход',
+    id: '9',
   },
 ];
 
 const SidebarWrapper = styled.section`
-  display: none;
+  display: flex;
   flex-direction: column;
   overflow: auto;
   width: 300px;
@@ -93,8 +100,8 @@ const Sidebar: FC = memo(() => {
     <SidebarWrapper>
       <SidebarTitle>Меню</SidebarTitle>
       <SidebarList>
-        {MenuItems.map((menuItem, index) => (
-          <SidebarItem icon={<menuItem.icon />} title={menuItem.title} key={index} />
+        {MenuItems.map(({icon, title, id}) => (
+          <SidebarItem icon={icon} title={title} key={id} id="" />
         ))}
       </SidebarList>
     </SidebarWrapper>

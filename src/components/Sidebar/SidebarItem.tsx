@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
-import {FC, memo, ReactNode} from 'react';
+import {FC, memo} from 'react';
+
+import MenuItemsType from '../../../types/types';
 
 const SidebarItemWrapper = styled.button`
   display: flex;
@@ -33,12 +35,7 @@ const SidebarItemName = styled.h4`
   color: #1c1c1e;
 `;
 
-interface SidebarItemProps {
-  icon: ReactNode;
-  title: string;
-}
-
-const SidebarItem: FC<SidebarItemProps> = memo(({icon, title}) => {
+const SidebarItem: FC<MenuItemsType> = memo(({icon, title}) => {
   return (
     <SidebarItemWrapper>
       <SidebarItemIcon>{icon}</SidebarItemIcon>
