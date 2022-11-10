@@ -3,7 +3,66 @@ import {FC, memo} from 'react';
 
 import mq from '../../../types/common';
 
+import {ReactComponent as Calendar} from '../../assets/calendar-menu-icon.svg';
+import {ReactComponent as Exit} from '../../assets/exit-menu-icon.svg';
+import {ReactComponent as FinanceSettings} from '../../assets/finance-settings-icon.svg';
+import {ReactComponent as Location} from '../../assets/location-menu-icon.svg';
+import {ReactComponent as Main} from '../../assets/main-menu-icon.svg';
+import {ReactComponent as ProfileSettings} from '../../assets/profile-settings-icon.svg';
+import {ReactComponent as Search} from '../../assets/search-menu-icon.svg';
+import {ReactComponent as Settings} from '../../assets/settings-menu-icon.svg';
+import {ReactComponent as Table} from '../../assets/table-menu-icon.svg';
+import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
+
 import SidebarItem from './SidebarItem';
+
+import {MenuItemsType} from './types';
+
+const MenuItems: Array<MenuItemsType> = [
+  {
+    icon: <Main />,
+    title: 'Главная',
+  },
+  {
+    icon: <Search />,
+    title: 'Поиск адресов',
+  },
+  {
+    icon: <Table />,
+    title: 'Таблицы',
+  },
+  {
+    icon: <Calendar />,
+    title: 'Календарь',
+  },
+  {
+    icon: <Location />,
+    title: 'Карты',
+  },
+  {
+    icon: <Widget />,
+    title: 'Виджеты',
+  },
+  {
+    icon: <Settings />,
+    title: 'Настройки',
+    children: [
+      {
+        icon: <ProfileSettings />,
+        title: 'Настройки профиля',
+      },
+      {
+        icon: <FinanceSettings />,
+        title: 'Управление финансами',
+      },
+    ],
+  },
+
+  {
+    icon: <Exit />,
+    title: 'Выход',
+  },
+];
 
 const SidebarWrapper = styled.section`
   display: none;
@@ -35,7 +94,9 @@ const Sidebar: FC = memo(() => {
     <SidebarWrapper>
       <SidebarTitle>Меню</SidebarTitle>
       <SidebarList>
-        <SidebarItem />
+        {MenuItems.map(item => (
+          <SidebarItem key={item.title} menuItem={item} />
+        ))}
       </SidebarList>
     </SidebarWrapper>
   );
