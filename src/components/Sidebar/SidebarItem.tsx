@@ -3,7 +3,12 @@ import {FC, memo, useCallback, useState} from 'react';
 
 import {ReactComponent as Arrow} from '../../assets/arrow-menu-icon.svg';
 
-import {MenuItemsType} from './types';
+import {MenuItem} from './types';
+
+interface MenuItemProp {
+  menuItem: MenuItem;
+  level?: number;
+}
 
 const SidebarItemWrapper = styled.button`
   display: flex;
@@ -37,9 +42,10 @@ const SidebarItemName = styled.h4`
   color: #1c1c1e;
 `;
 
-const ItemsWrapper = styled.div`
+const ItemsWrapper = styled.div<{paddingLeft: string}>`
   display: flex;
   flex-direction: column;
+  padding-left: ${({paddingLeft}) => paddingLeft};
 `;
 
 const SidebarItemArrowIcon = styled.span`
@@ -59,21 +65,18 @@ const SidebarItemArrowIcon = styled.span`
   }
 `;
 
-interface MenuItemPropTypes {
-  menuItem: MenuItemsType;
-  level?: number;
-}
-
-const SidebarItem: FC<MenuItemPropTypes> = memo(({menuItem, level = 0}) => {
+const SidebarItem: FC<MenuItemProp> = memo(({menuItem, level = 0}) => {
   const {icon, title, children} = menuItem;
   const [isOpened, setIsOpened] = useState(false);
-  const settingsToogler = useCallback(() => {
-    setIsOpened(!isOpened);
-  }, [isOpened]);
+  const toggleOpen = useCallback(() => {
+    if (children) {
+      setIsOpened(!isOpened);
+    }
+  }, [isOpened, children]);
 
   return (
-    <ItemsWrapper style={{paddingLeft: `${48 * level}px`}}>
-      <SidebarItemWrapper onClick={children && settingsToogler}>
+    <ItemsWrapper paddingLeft={`${48 * level}px`}>
+      <SidebarItemWrapper onClick={toggleOpen}>
         <SidebarItemIcon>{icon}</SidebarItemIcon>
         <SidebarItemName>{title}</SidebarItemName>
         {children && (
@@ -88,9 +91,7 @@ const SidebarItem: FC<MenuItemPropTypes> = memo(({menuItem, level = 0}) => {
           </SidebarItemArrowIcon>
         )}
       </SidebarItemWrapper>
-      {children &&
-        isOpened &&
-        children.map(child => <SidebarItem key={child.title} menuItem={child} level={level + 1} />)}
+      {isOpened && children?.map(child => <SidebarItem key={child.title} menuItem={child} level={level + 1} />)}
     </ItemsWrapper>
   );
 });

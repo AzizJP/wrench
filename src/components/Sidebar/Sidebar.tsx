@@ -16,9 +16,9 @@ import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
 
 import SidebarItem from './SidebarItem';
 
-import {MenuItemsType} from './types';
+import {MenuItem} from './types';
 
-const MenuItems: Array<MenuItemsType> = [
+const MenuItems: Array<MenuItem> = [
   {
     icon: <Main />,
     title: 'Главная',
