@@ -5,6 +5,8 @@ import {ReactComponent as Arrow} from '../../assets/arrow-menu-icon.svg';
 
 import {MenuItem} from './types';
 
+const basePadding = 48;
+
 interface MenuItemProp {
   menuItem: MenuItem;
   level?: number;
@@ -42,10 +44,10 @@ const SidebarItemName = styled.h4`
   color: #1c1c1e;
 `;
 
-const ItemsWrapper = styled.div<{paddingLeft: string}>`
+const ItemsWrapper = styled.div<{paddingLeft: number}>`
   display: flex;
   flex-direction: column;
-  padding-left: ${({paddingLeft}) => paddingLeft};
+  padding-left: ${({paddingLeft}) => paddingLeft}px;
 `;
 
 const SidebarItemArrowIcon = styled.span`
@@ -75,7 +77,7 @@ const SidebarItem: FC<MenuItemProp> = memo(({menuItem, level = 0}) => {
   }, [isOpened, children]);
 
   return (
-    <ItemsWrapper paddingLeft={`${48 * level}px`}>
+    <ItemsWrapper paddingLeft={basePadding * level}>
       <SidebarItemWrapper onClick={toggleOpen}>
         <SidebarItemIcon>{icon}</SidebarItemIcon>
         <SidebarItemName>{title}</SidebarItemName>
