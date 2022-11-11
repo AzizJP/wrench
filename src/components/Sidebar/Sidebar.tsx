@@ -15,9 +15,10 @@ import {ReactComponent as Table} from '../../assets/table-menu-icon.svg';
 import {ReactComponent as Widget} from '../../assets/widget-menu-icon.svg';
 
 import SidebarItem from './SidebarItem';
-import {MenuItemsType} from './types';
 
-const MenuItems: Array<MenuItemsType> = [
+import {MenuItem} from './types';
+
+const MenuItems: Array<MenuItem> = [
   {
     icon: <Main />,
     title: 'Главная',
@@ -45,15 +46,18 @@ const MenuItems: Array<MenuItemsType> = [
   {
     icon: <Settings />,
     title: 'Настройки',
+    children: [
+      {
+        icon: <ProfileSettings />,
+        title: 'Настройки профиля',
+      },
+      {
+        icon: <FinanceSettings />,
+        title: 'Управление финансами',
+      },
+    ],
   },
-  {
-    icon: <ProfileSettings />,
-    title: 'Настройки профиля',
-  },
-  {
-    icon: <FinanceSettings />,
-    title: 'Управление финансами',
-  },
+
   {
     icon: <Exit />,
     title: 'Выход',
@@ -90,8 +94,8 @@ const Sidebar: FC = memo(() => {
     <SidebarWrapper>
       <SidebarTitle>Меню</SidebarTitle>
       <SidebarList>
-        {MenuItems.map(({icon, title}) => (
-          <SidebarItem icon={icon} title={title} key={title} />
+        {MenuItems.map(item => (
+          <SidebarItem key={item.title} menuItem={item} />
         ))}
       </SidebarList>
     </SidebarWrapper>

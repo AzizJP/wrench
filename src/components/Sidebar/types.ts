@@ -1,6 +1,7 @@
 import {ReactNode} from 'react';
 
-export interface MenuItemsType {
+export interface MenuItem {
   icon: ReactNode;
   title: string;
+  children?: Array<MenuItem>;
 }
