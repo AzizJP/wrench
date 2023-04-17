@@ -35,7 +35,7 @@ const SidebarItemIcon = styled.span`
   }
 `;
 
-const SidebarItemName = styled.h4`
+const SidebarItemTitle = styled.h4`
   text-align: start;
   margin: 0;
   font-weight: 600;
@@ -80,7 +80,7 @@ const SidebarItem: FC<MenuItemProp> = memo(({menuItem, level = 0}) => {
     <ItemsWrapper paddingLeft={basePadding * level}>
       <SidebarItemWrapper onClick={toggleOpen}>
         <SidebarItemIcon>{icon}</SidebarItemIcon>
-        <SidebarItemName>{title}</SidebarItemName>
+        <SidebarItemTitle>{title}</SidebarItemTitle>
         {children && (
           <SidebarItemArrowIcon>
             {isOpened ? (
